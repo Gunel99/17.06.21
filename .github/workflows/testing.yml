@@ -1,0 +1,19 @@
+name: Test React App
+
+on: 
+  push: 
+    branches: 
+      - main
+    pull_request:
+      branches:
+      - main
+
+jobs: 
+  build: 
+    runs-on: ubuntu-latest
+    steps: 
+      # -name: Get codes from git
+      -uses: actions/checkout@v2
+      # -name: Setup Node v14
+      - run: ls - la
+
