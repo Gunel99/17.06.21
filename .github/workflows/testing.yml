@@ -19,5 +19,14 @@ jobs:
         uses: actions/setup-node@v1
         with: 
           node-version: 14.x
-      - run: yarn
+
+      - name: Install dependencies
+        run: yarn
+
+      - Run tests
+        run: yarn run test
+
+      - Create production build
+        run: yarn run build
+
 
