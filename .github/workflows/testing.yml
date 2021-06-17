@@ -1,6 +1,6 @@
 name: Test React App
 
-on: 
+on:
   push: 
     branches: 
       - main
