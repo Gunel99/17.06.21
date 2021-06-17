@@ -12,20 +12,31 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy: 
+      matrix: 
+        node-version:
+          - 12.x
+          - 14.x
+          - 16.x
+
     steps: 
+      - name: Get codes from git
       - uses: actions/checkout@v2 
-      - name: Setup Node v14
+      
+      - name: Setup Node ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with: 
-          node-version: 14.x
+          node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
         run: yarn
 
       - name: Run tests
+        # working-directory: ./app
         run: yarn run test
 
       - name: Create production build
+        # working-directory: ./app
         run: yarn run build
 
 
